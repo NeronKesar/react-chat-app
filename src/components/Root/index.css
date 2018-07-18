@@ -1,0 +1,25 @@
+.Title {
+  color: black;
+  font-size: 1cm;
+  text-shadow:
+    2px 2px 10px red,
+    2px 2px 10px red,
+    2px 2px 10px red,
+    2px 2px 10px red;
+}
+
+.Title:hover {
+  color: #9b0000;
+}
+
+.Title:active {
+  color: #600000
+}
+
+.Navbar {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
