@@ -6,6 +6,7 @@ import Profile from './routes/Profile';
 import Contacts from './routes/Contacts';
 import Chats from './routes/Chats';
 import Auth from './routes/Auth';
+import Dialog from './routes/Dialog';
 import {
   PATH_HOME,
   PATH_PROFILE,
@@ -27,6 +28,7 @@ class Root extends Component {
         <ProtectedRoute path={PATH_CONTACTS} component={Contacts} />
         <ProtectedRoute path={PATH_CHATS} component={Chats} />
         <ProtectedRoute path={PATH_AUTH} component={Auth} />
+        <ProtectedRoute path="/dialog" component={Dialog} />
 
       </div>
     )
