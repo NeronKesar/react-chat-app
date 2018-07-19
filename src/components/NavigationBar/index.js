@@ -1,6 +1,13 @@
 import React from 'react';
 import Button from './Button';
-import './index.css'
+import {
+  PATH_PROFILE,
+  PATH_CONTACTS,
+  PATH_CHATS,
+  PATH_AUTH,
+} from '../../constants';
+
+import './style.css'
 
 export default function NavigationBar() {
   return (
@@ -9,19 +16,19 @@ export default function NavigationBar() {
       <div className="NavigationBarContainer">
 
         <Button
-          to="/profile"
+          to={PATH_PROFILE}
           style={style}
           text="Profile"
         />
 
         <Button
-          to="/contacts"
+          to={PATH_CONTACTS}
           style={style}
           text="Contacts"
         />
 
         <Button
-          to="/chats"
+          to={PATH_CHATS}
           style={style}
           text="Chats"
         />
@@ -29,7 +36,7 @@ export default function NavigationBar() {
       </div>
 
       <Button
-        to="/auth"
+        to={PATH_AUTH}
         style={style}
         text="Sing In"
         className="SingInButton"
