@@ -1,7 +1,11 @@
 .NavigationBar {
   display: flex;
   width: 50%;
+  padding-left: 20px;
+  padding-right: 10px;
   padding-bottom: 20px;
+  border-bottom-style: double;
+  border-bottom-color: red;
 }
 
 .NavigationBarContainer {
@@ -13,7 +17,7 @@
 }
 
 .NavigationBarButton {
-  padding-left: 60px;
+  padding-right: 60px;
   padding-top: 10px;
 }
 
@@ -41,18 +45,12 @@
   justify-content: center;
   align-items: center;
   height: 30px;
-  border-style: double;
-  border-color: #9e0000;
-}
-
-.SingInText {
-  color: #9e0000;
 }
 
 .SingInButton:hover {
   border-color: red;
 }
 
-.SingInText:active {
+.Button:active {
   color: red;
 }

@@ -1,17 +1,17 @@
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #000000;
 }
 
 .Root {
   display: flex;
-  flex: 1;
   flex-direction: column;
   align-self: center;
   justify-content: center;
   align-items: center;
-  background-color: #000000;
 }
 
 .Title {

@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from './Button';
-import SignInButton from './SignInButton';
 import './index.css'
 
 export default function NavigationBar() {
@@ -29,7 +28,12 @@ export default function NavigationBar() {
 
       </div>
 
-      <SignInButton />
+      <Button
+        to="/auth"
+        style={style}
+        text="Sing In"
+        className="SingInButton"
+      />
 
     </div>
   )

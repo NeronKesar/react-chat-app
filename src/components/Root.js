@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import Title from './Title';
 import NavigationBar from './NavigationBar/index';
-import '../index.css'
+import ProtectedRoute from './common/ProtectedRoute';
+import Profile from './routes/Profile';
 
 class Root extends Component {
   render() {
     return (
       <div className="Root">
 
-        <Link
-          to="/"
-          style={{ textDecoration: 'none' }}
-        >
-          <h1 className="Title">CHAT-APP</h1>
-        </Link>
+        <Title to="/" text="CHAT-APP" />
 
         <NavigationBar />
+
+        <ProtectedRoute path="/profile" component={Profile}/>
 
       </div>
     )
