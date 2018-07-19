@@ -16,10 +16,48 @@
   color: #600000
 }
 
-.Navbar {
+.Root {
   display: flex;
+  flex: 1;
+  flex-direction: column;
   align-self: center;
   justify-content: center;
   align-items: center;
   background-color: #000000;
+}
+
+.Navbar {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.NavbarContainer {
+  display: flex;
+  flex: 1;
+  border-style: groove;
+  border-color: red;
+}
+
+.SingInButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 30px;
+  border-style: double;
+  border-color: #9e0000;
+}
+
+.SingInText {
+  color: #9e0000;
+}
+
+.SingInButton:hover {
+  border-color: red;
+}
+
+.SingInText:active {
+  color: red;
 }
