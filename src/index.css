@@ -3,3 +3,31 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.Root {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
+
+.Title {
+  color: black;
+  font-size: 1cm;
+  text-shadow:
+    2px 2px 10px red,
+    2px 2px 10px red,
+    2px 2px 10px red,
+    2px 2px 10px red;
+}
+
+.Title:hover {
+  color: #9b0000;
+}
+
+.Title:active {
+  color: #600000
+}

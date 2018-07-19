@@ -1,0 +1,58 @@
+.NavigationBar {
+  display: flex;
+  width: 50%;
+  padding-bottom: 20px;
+}
+
+.NavigationBarContainer {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: center;
+  height: 30px;
+}
+
+.NavigationBarButton {
+  padding-left: 60px;
+  padding-top: 10px;
+}
+
+.NavigationBarButtonText {
+  font-size: 20px;
+  color: #9e0000;
+}
+
+.NavigationBarButtonText:hover {
+  color: red;
+}
+
+.NavigationBarButtonText:active {
+  color: black;
+  text-shadow:
+    1px 1px 2px red,
+    1px 1px 2px red,
+    1px 1px 2px red,
+    1px 1px 2px red;
+}
+
+.SingInButton {
+  display: flex;
+  flex: 0.1;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  border-style: double;
+  border-color: #9e0000;
+}
+
+.SingInText {
+  color: #9e0000;
+}
+
+.SingInButton:hover {
+  border-color: red;
+}
+
+.SingInText:active {
+  color: red;
+}
