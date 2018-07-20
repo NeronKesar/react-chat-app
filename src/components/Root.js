@@ -26,9 +26,8 @@ class Root extends Component {
 
         <ProtectedRoute path={PATH_PROFILE} component={Profile} />
         <ProtectedRoute path={PATH_CONTACTS} component={Contacts} />
-        <ProtectedRoute path={PATH_CHATS} component={Chats} />
+        <ProtectedRoute path={PATH_CHATS} component={Dialog} />
         <ProtectedRoute path={PATH_AUTH} component={Auth} />
-        <ProtectedRoute path="/dialog" component={Dialog} />
 
       </div>
     )
