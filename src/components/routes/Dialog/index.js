@@ -3,6 +3,7 @@ import { MessageList, Input, Button } from 'react-chat-elements';
 import { messages } from './testMessages';
 import './style.css';
 import '../../common/chatElementsStyle.css';
+import guitar from '../../../assets/images/guitar.png';
 
 class Dialog extends Component {
   render() {
@@ -18,7 +19,6 @@ class Dialog extends Component {
 
         <div>
           <Input
-            className="DialogInput"
             placeholder="Type here..."
             rightButtons={
               <Button

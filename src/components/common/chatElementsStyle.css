@@ -78,7 +78,7 @@
   margin-right: 20px;
   border-top-right-radius: 0px;
   border-top-left-radius: 5px;
-  background: #595959
+  background: #595959;
 }
 
 .rce-mbox-text {
@@ -592,8 +592,9 @@
   min-width: 100%;
   box-sizing: border-box;
   flex-direction: row;
-  background: #fff;
+  background: #2e2e2e;
   align-items: center;
+  margin-top: 20px;
 }
 
 .rce-input {
@@ -602,10 +603,11 @@
   padding: 0 5px;
   border: none;
   border-radius: 5px;
-  color: #333;
+  color: #afafaf;
   font-size: 14px;
   box-sizing: border-box;
   outline: none;
+  background: transparent;
 }
 
 .rce-input-textarea {
