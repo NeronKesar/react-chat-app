@@ -10,7 +10,7 @@ class Dialog extends Component {
       <div className="DialogRoot">
 
         <MessageList
-          className="message-list"
+          className="MessageList"
           lockable={true}
           toBottomHeight={300}
           dataSource={messages}
