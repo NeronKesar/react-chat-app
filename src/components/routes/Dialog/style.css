@@ -1,4 +1,7 @@
-.MessageList {
+.DialogRoot {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 1000px;
   height: 80vh;
   margin-top: 20px;

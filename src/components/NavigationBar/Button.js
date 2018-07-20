@@ -8,7 +8,7 @@ export default function Button({ to, style, text, className = 'NavigationBarButt
         to={to}
         style={style}
       >
-        <text className="NavigationBarButtonText">{text}</text>
+        <p className="NavigationBarButtonText">{text}</p>
       </Link>
     </div>
   )

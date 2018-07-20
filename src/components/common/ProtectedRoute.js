@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 
 class ProtectedRoute extends Component {
   static propTypes = {
-    component: PropTypes.element.isRequired,
+    component: PropTypes.func.isRequired,
   };
 
   renderProtected = routeProps => {
@@ -13,7 +13,7 @@ class ProtectedRoute extends Component {
   };
 
   render() {
-    const { ...rest } = this.props;
+    const { component, ...rest } = this.props;
     return <Route {...rest} render={this.renderProtected}/>
   }
 }

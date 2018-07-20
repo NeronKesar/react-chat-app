@@ -1,37 +1,35 @@
 import React, { Component } from 'react';
-import { MessageList } from 'react-chat-elements';
+import { MessageList, Input, Button } from 'react-chat-elements';
+import { messages } from './testMessages';
 import './style.css';
 import 'react-chat-elements/dist/main.css';
 
 class Dialog extends Component {
   render() {
     return (
-      <div className="MessageList">
+      <div className="DialogRoot">
+
         <MessageList
           className="message-list"
           lockable={true}
-          toBottomHeight="100%"
-          dataSource={[
-            {
-              position: 'right',
-              type: 'text',
-              text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit',
-              date: new Date(),
-            },
-            {
-              position: 'right',
-              type: 'text',
-              text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit',
-              date: new Date(),
-            },
-            {
-              position: 'right',
-              type: 'text',
-              text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit',
-              date: new Date(),
-            },
-          ]}
+          toBottomHeight={300}
+          dataSource={messages}
         />
+
+        <div>
+          <Input
+            className="DialogInput"
+            placeholder="Type here..."
+            rightButtons={
+              <Button
+                color='white'
+                backgroundColor='black'
+                text='Send'
+              />
+            }
+          />
+        </div>
+
       </div>
     )
   }
