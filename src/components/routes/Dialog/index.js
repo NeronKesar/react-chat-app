@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { MessageList, Input, Button } from 'react-chat-elements';
 import { messages } from './testMessages';
 import './style.css';
-import 'react-chat-elements/dist/main.css';
+import '../../common/chatElementsStyle.css';
 
 class Dialog extends Component {
   render() {
