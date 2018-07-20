@@ -35,3 +35,15 @@ body {
 .Title:active {
   color: #600000
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #600000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: red;
+}
