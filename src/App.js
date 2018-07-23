@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Router } from 'react-router-dom';
+import store from './redux';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'react-router-redux';
 import Root from './components/Root';
 import history from './history';
 import './appStyle.css';
@@ -7,9 +9,11 @@ import './appStyle.css';
 class App extends Component {
   render() {
     return (
-      <Router history={history}>
-        <Root />
-      </Router>
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <Root />
+        </ConnectedRouter>
+      </Provider>
     );
   }
 }
