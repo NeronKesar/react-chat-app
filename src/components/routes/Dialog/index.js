@@ -10,6 +10,14 @@ class Dialog extends Component {
     messages: messages,
   };
 
+  handleRef = ref => this.input = ref;
+
+  handleKeyDown = ({ keyCode }) => {
+    if (keyCode === 13) {
+      this.handleSend();
+    }
+  };
+
   handleChange = ({ target: { value: text} }) => {
     this.setState({ text })
   };
@@ -22,7 +30,10 @@ class Dialog extends Component {
       date: new Date()
     });
 
-    this.setState({ messages })
+    if (this.state.text.length > 0) {
+      this.setState({ messages });
+      this.input.clear();
+    }
   };
 
   render() {
@@ -38,7 +49,10 @@ class Dialog extends Component {
 
         <div>
           <Input
+            ref={this.handleRef}
+            onKeyDown={this.handleKeyDown}
             onChange={this.handleChange}
+            value={this.state.text}
             placeholder="Type here..."
             rightButtons={
               <Button
