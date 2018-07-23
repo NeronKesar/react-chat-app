@@ -5,7 +5,7 @@ import {
   PATH_CONTACTS,
   PATH_CHATS,
   PATH_AUTH,
-} from '../../constants';
+} from '../../constants/paths';
 
 import './style.css'
 
