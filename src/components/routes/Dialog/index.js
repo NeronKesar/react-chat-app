@@ -1,16 +1,20 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { MessageList, Input, Button } from 'react-chat-elements';
 import { messages } from './testMessages';
 import './style.css';
 import '../../common/chatElementsStyle.css';
 
-class Dialog extends Component {
+class Dialog extends PureComponent {
   state = {
     text: '',
-    messages: messages,
+    messages: [],
   };
 
-  handleRef = ref => this.input = ref;
+  componentDidMount() {
+    this.setState({ messages });
+  }
+
+  handleInputRef = ref => this.input = ref;
 
   handleKeyDown = ({ keyCode }) => {
     if (keyCode === 13) {
@@ -18,7 +22,7 @@ class Dialog extends Component {
     }
   };
 
-  handleChange = ({ target: { value: text} }) => {
+  handleChange = ({ target: { value: text } }) => {
     this.setState({ text })
   };
 
@@ -43,13 +47,13 @@ class Dialog extends Component {
         <MessageList
           className="MessageList"
           lockable={true}
-          toBottomHeight={300}
+          toBottomHeight={'100%'}
           dataSource={this.state.messages}
         />
 
         <div>
           <Input
-            ref={this.handleRef}
+            ref={this.handleInputRef}
             onKeyDown={this.handleKeyDown}
             onChange={this.handleChange}
             value={this.state.text}
