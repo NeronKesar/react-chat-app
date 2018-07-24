@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import Root from './components/Root';
 import history from './history';
+import './config';
 import './appStyle.css';
 
 class App extends Component {

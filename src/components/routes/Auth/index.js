@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { Route, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import SingInForm from '../../auth/SignInForm';
 import SignUpForm from '../../auth/SignUpForm';
-import { Route, NavLink } from 'react-router-dom';
 import { PATH_SIGN_IN, PATH_SIGN_UP } from '../../../constants/paths';
+import { signUp, signIn, moduleName } from '../../../ducks/auth';
 import './style.css';
 
 class Auth extends Component {
@@ -10,13 +12,9 @@ class Auth extends Component {
 
   renderSignUp = () => <SignUpForm onSubmit={this.handleSingUp} />;
 
-  handleSingIn = values => {
-    console.log('SING IN VALUES:', values);
-  };
+  handleSingIn = ({ email, password }) => this.props.signIn(email, password);
 
-  handleSingUp = values => {
-    console.log('SING UP VALUES:', values);
-  };
+  handleSingUp = ({ email, password }) => this.props.signUp(email, password);
 
   render() {
     return (
@@ -31,4 +29,6 @@ class Auth extends Component {
   }
 }
 
-export default Auth;
+export default connect(state => ({
+  loading: state[moduleName].loading,
+}), { signUp, signIn })(Auth);

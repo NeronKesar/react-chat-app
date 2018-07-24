@@ -1,4 +1,6 @@
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/app';
+import 'firebase/auth';
 
 export const appName = 'react-chat-app-de99d';
 export const firebaseConfig = {
@@ -6,7 +8,7 @@ export const firebaseConfig = {
   authDomain: `${appName}.firebaseapp.com`,
   databaseURL: `https://${appName}.firebaseio.com`,
   projectId: appName,
-  storageBucket: "",
+  storageBucket: `${appName}.appspot.com`,
   messagingSenderId: "129089518968"
 };
 
