@@ -77,19 +77,13 @@ export const signUpSaga = function* () {
 
   while(true) {
     const action = yield take(SIGN_UP_REQUEST);
-    const { email, password } = action.payload;
 
     try {
-      const user = yield call(
+     yield call(
         [auth, auth.createUserWithEmailAndPassword],
-        email,
-        password,
+        action.payload.email,
+        action.payload.password,
       );
-
-      yield put({
-        type: SIGN_UP_SUCCESS,
-        payload: { user },
-      })
 
     } catch (error) {
       yield put({
@@ -105,13 +99,12 @@ export const signInSaga = function* () {
 
   while (true) {
     const action = yield take(SIGN_IN_REQUEST);
-    const { email, password } = action.payload;
 
     try {
       yield call(
         [auth, auth.signInWithEmailAndPassword],
-        email,
-        password,
+        action.payload.email,
+        action.payload.password,
       )
     } catch (error) {
       yield put({
@@ -133,13 +126,13 @@ export const watchStatusChange = function* () {
     if (user) {
       yield put({
         type: SIGN_IN_SUCCESS,
-        payload: user,
+        payload: { user },
       });
 
     } else {
       yield put({
         type: SIGN_OUT_SUCCESS,
-        payload: user,
+        payload: { user },
       });
 
       yield put(push(PATH_SIGN_IN))
