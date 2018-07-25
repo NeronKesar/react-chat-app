@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
+import { moduleName } from '../ducks/auth';
 import Title from './Title';
 import NavigationBar from './NavigationBar/index';
 import ProtectedRoute from './common/ProtectedRoute';
@@ -21,16 +24,18 @@ class Root extends Component {
 
         <Title to={PATH_HOME} text="CHAT-APP" />
 
-        <NavigationBar />
+        <NavigationBar userData={this.props.user} />
 
         <ProtectedRoute path={PATH_PROFILE} component={Profile} />
         <ProtectedRoute path={PATH_CONTACTS} component={Contacts} />
         <ProtectedRoute path={PATH_CHATS} component={Dialog} />
-        <ProtectedRoute path={PATH_AUTH} component={Auth} />
+        <Route path={PATH_AUTH} component={Auth} />
 
       </div>
     )
   }
 }
 
-export default Root;
+export default connect(state => ({
+  user: state[moduleName].user,
+}), null, null, { pure: false })(Root);

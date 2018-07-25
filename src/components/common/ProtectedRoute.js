@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { moduleName } from '../../ducks/auth';
 
 class ProtectedRoute extends Component {
   static propTypes = {
@@ -8,8 +10,8 @@ class ProtectedRoute extends Component {
   };
 
   renderProtected = routeProps => {
-    const { component: ProtectedComponent } = this.props;
-    return <ProtectedComponent {...routeProps} />
+    const { component: ProtectedComponent, authorized } = this.props;
+    return authorized ? <ProtectedComponent {...routeProps} /> : <div style={{ color: 'red' }}>unauthorized</div>
   };
 
   render() {
@@ -18,4 +20,6 @@ class ProtectedRoute extends Component {
   }
 }
 
-export default ProtectedRoute;
+export default connect(state => ({
+  authorized: !!state[moduleName].user
+}), null, null, { pure: false })(ProtectedRoute);

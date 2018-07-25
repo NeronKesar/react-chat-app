@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Button from './Button';
 import {
   PATH_PROFILE,
@@ -9,43 +9,39 @@ import {
 
 import './style.css'
 
-export default function NavigationBar() {
-  return (
-    <div className="NavigationBar">
+class NavigationBar extends Component {
+  render() {
+    return (
+      <div className="NavigationBar">
 
-      <div className="NavigationBarContainer">
+        <div className="NavigationBarContainer">
+
+          <Button
+            to={PATH_PROFILE}
+            text="Profile"
+          />
+
+          <Button
+            to={PATH_CONTACTS}
+            text="Contacts"
+          />
+
+          <Button
+            to={PATH_CHATS}
+            text="Chats"
+          />
+
+        </div>
 
         <Button
-          to={PATH_PROFILE}
-          style={style}
-          text="Profile"
-        />
-
-        <Button
-          to={PATH_CONTACTS}
-          style={style}
-          text="Contacts"
-        />
-
-        <Button
-          to={PATH_CHATS}
-          style={style}
-          text="Chats"
+          to={PATH_AUTH}
+          text="Sing In"
+          className="SingInButton"
         />
 
       </div>
-
-      <Button
-        to={PATH_AUTH}
-        style={style}
-        text="Sing In"
-        className="SingInButton"
-      />
-
-    </div>
-  )
+    )
+  }
 }
 
-const style = {
-  textDecoration: 'none',
-};
+export default NavigationBar;
