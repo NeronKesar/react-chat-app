@@ -3,11 +3,29 @@ body {
   min-height: 1000px;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Shadows of Security', sans-serif;
   background-image: url("./assets/images/background_image.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+@font-face {
+  font-family: 'Shadows of Security';
+  src: local('Shadows of Security'),
+  url('../src/assets/fonts/Shadows of Security.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Hellion';
+  src: local('Hellion'),
+  url('../src/assets/fonts/Hellion.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Benguiat';
+  src: local('Benguiat'),
+  url('../src/assets/fonts/Benguiat.ttf') format('truetype');
 }
 
 .Root {
@@ -20,7 +38,8 @@ body {
 
 .Title {
   color: black;
-  font-size: 1cm;
+  font-family: 'Hellion', sans-serif;
+  font-size: 50px;
   text-shadow:
     2px 2px 10px red,
     2px 2px 10px red,

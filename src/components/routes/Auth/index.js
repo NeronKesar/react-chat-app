@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SingInForm from '../../auth/SignInForm';
-import SignUpForm from '../../auth/SignUpForm';
-import { PATH_SIGN_IN, PATH_SIGN_UP } from '../../../constants/paths';
 import { signUp, signIn, signOut, moduleName } from '../../../ducks/auth';
 import './style.css';
 
