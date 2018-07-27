@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SingInForm from '../../auth/SignInForm';
-import { signUp, signIn, signOut, moduleName } from '../../../ducks/auth';
+import { signIn, moduleName } from '../../../ducks/auth';
 import './style.css';
 
 class Auth extends Component {
@@ -20,4 +20,4 @@ class Auth extends Component {
 
 export default connect(state => ({
   loading: state[moduleName].loading,
-}), { signUp, signIn, signOut })(Auth);
+}), { signIn, })(Auth);

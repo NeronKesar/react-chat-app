@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
+import { Link } from 'react-router-dom';
 import emailValidator from 'email-validator';
 import InputField from '../../common/InputField';
 import './style.css';
+import {PATH_SIGN_UP} from "../../../constants/paths";
 
 class SignInForm extends Component {
   render() {
@@ -36,6 +38,11 @@ class SignInForm extends Component {
           </div>
 
         </form>
+
+        <div className="SignInFormText">
+          Do not have an account? <Link to={PATH_SIGN_UP} className="SignInFormLink">Sign Up</Link>
+        </div>
+
       </div>
     )
   }
