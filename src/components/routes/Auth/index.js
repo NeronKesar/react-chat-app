@@ -5,7 +5,7 @@ import { signUp, signIn, signOut, moduleName } from '../../../ducks/auth';
 import './style.css';
 
 class Auth extends Component {
-  handleSingIn = ({ email, password }) => console.log('SUBMIT');
+  handleSingIn = ({ email, password }) => this.props.signIn(email, password);
 
   render() {
     return (
