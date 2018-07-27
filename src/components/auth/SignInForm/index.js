@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-import ErrorField from '../../common/ErrorField';
+import emailValidator from 'email-validator';
+import InputField from '../../common/InputField';
 import './style.css';
 
 class SignInForm extends Component {
@@ -9,19 +10,31 @@ class SignInForm extends Component {
 
     return (
       <div className="SignInFormRoot">
-        <h2>Sign In</h2>
+
+        <h1 className="SignInFormTitle">Sign In</h1>
+
         <form onSubmit={handleSubmit} className="SignInFormInputs">
-          <div>
-            <label>Email</label>
-            <Field name="email" component={ErrorField} />
+
+          <div className="SignInFormInputContainer">
+
+            <label className="SignInFormLabel">Email</label>
+
+            <Field name="email" component={InputField} />
+
           </div>
-          <div>
-            <label>Password</label>
-            <Field name="password" component={ErrorField} type="password" />
+
+          <div className="SignInFormInputContainer">
+
+            <label className="SignInFormLabel">Password</label>
+
+            <Field name="password" component={InputField} type="password" />
+
           </div>
-          <div>
-            <input type="submit" />
+
+          <div className="SignInFormSubmitButtonContainer">
+            <button type="submit" className="SignInFormSubmitButton">Submit</button>
           </div>
+
         </form>
       </div>
     )
@@ -31,9 +44,17 @@ class SignInForm extends Component {
 const validate = ({ email, password }) => {
   const errors = {};
 
-  if (!email) errors.email = 'Email is required';
+  if (!email) {
+    errors.email = 'Email is required';
+  } else if (!emailValidator.validate(email)) {
+    errors.email = 'Invalid email';
+  }
 
-  if (!password) errors.password = 'Password is required';
+  if (!password) {
+    errors.password = 'Password is required';
+  } else if (password.length < 8) {
+    errors.password = 'Password is to short';
+  }
 
   return errors;
 };

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import emailValidator from 'email-validator';
-import ErrorField from '../../common/ErrorField';
+import InputField from '../../common/InputField';
 
 class SignUpForm extends Component {
   render() {
@@ -13,11 +13,11 @@ class SignUpForm extends Component {
         <form onSubmit={handleSubmit}>
           <div>
             <label>Email</label>
-            <Field name="email" component={ErrorField} />
+            <Field name="email" component={InputField} />
           </div>
           <div>
             <label>Password</label>
-            <Field name="password" component={ErrorField} type="password" />
+            <Field name="password" component={InputField} type="password" />
           </div>
           <div>
             <input type="submit" />

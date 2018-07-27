@@ -36,7 +36,7 @@ class NavigationBar extends Component {
         <Button
           to={PATH_AUTH}
           text="Sing In"
-          className="SingInButton"
+          className="SignInButton"
         />
 
       </div>

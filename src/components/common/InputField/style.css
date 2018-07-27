@@ -1,0 +1,28 @@
+.ErrorFieldRoot {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.ErrorFieldInput {
+  background-color: #2e2e2e;
+  color: #afafaf;
+  border-radius: 10px;
+  padding: 10px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.ErrorFieldInput:focus {
+  border: 2px solid red;
+  outline: none;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.ErrorFieldErrorText {
+  color: red;
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+}

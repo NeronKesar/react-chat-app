@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 export default function SignInButton() {
   return (
-    <div className="SingInButton">
+    <div className="SignInButton">
       <Link
-        className="SingInText"
+        className="SignInText"
         to="/auth"
         style={{ textDecoration: 'none' }}
       >
