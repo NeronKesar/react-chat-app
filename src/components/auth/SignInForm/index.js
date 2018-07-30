@@ -3,8 +3,8 @@ import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import emailValidator from 'email-validator';
 import InputField from '../../common/InputField';
+import { PATH_SIGN_UP } from '../../../constants/paths';
 import './style.css';
-import {PATH_SIGN_UP} from "../../../constants/paths";
 
 class SignInForm extends Component {
   render() {
