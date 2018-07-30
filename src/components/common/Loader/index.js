@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import image from '../../../assets/images/pentagram-red.png';
+import image from '../../../assets/images/pentagram.png';
 
 const Loader = () => {
   return (
