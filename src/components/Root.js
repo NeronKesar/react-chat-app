@@ -7,14 +7,14 @@ import NavigationBar from './NavigationBar/index';
 import ProtectedRoute from './common/ProtectedRoute';
 import Profile from './routes/Profile';
 import Contacts from './routes/Contacts';
-import Auth from './routes/Auth';
+import SignIn from './routes/SignIn';
 import Dialog from './routes/Dialog';
 import {
   PATH_HOME,
   PATH_PROFILE,
   PATH_CONTACTS,
   PATH_CHATS,
-  PATH_AUTH,
+  PATH_SIGN_IN,
 } from '../constants/paths';
 
 class Root extends Component {
@@ -29,7 +29,7 @@ class Root extends Component {
         <ProtectedRoute path={PATH_PROFILE} component={Profile} />
         <ProtectedRoute path={PATH_CONTACTS} component={Contacts} />
         <ProtectedRoute path={PATH_CHATS} component={Dialog} />
-        <Route path={PATH_AUTH} component={Auth} />
+        <Route path={PATH_SIGN_IN} component={SignIn} />
 
       </div>
     )

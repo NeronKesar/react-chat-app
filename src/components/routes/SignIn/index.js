@@ -2,16 +2,29 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SingInForm from '../../auth/SignInForm';
 import { signIn, moduleName } from '../../../ducks/auth';
+import Loader from '../../common/Loader';
 import './style.css';
 
-class Auth extends Component {
+class SignIn extends Component {
   handleSingIn = ({ email, password }) => this.props.signIn(email, password);
+
+  renderLoader = () => {
+    return (
+      <div className="AuthLoaderContainer">
+        <Loader />
+      </div>
+    )
+  };
 
   render() {
     return (
       <div className="AuthContainer">
 
-        <SingInForm onSubmit={this.handleSingIn} />
+        {
+          this.props.loading
+          ? this.renderLoader()
+          : <SingInForm onSubmit={this.handleSingIn} />
+        }
 
       </div>
     )
@@ -20,4 +33,4 @@ class Auth extends Component {
 
 export default connect(state => ({
   loading: state[moduleName].loading,
-}), { signIn, })(Auth);
+}), { signIn })(SignIn);

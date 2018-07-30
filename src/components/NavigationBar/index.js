@@ -4,7 +4,7 @@ import {
   PATH_PROFILE,
   PATH_CONTACTS,
   PATH_CHATS,
-  PATH_AUTH,
+  PATH_SIGN_IN,
 } from '../../constants/paths';
 
 import './style.css'
@@ -34,7 +34,7 @@ class NavigationBar extends Component {
         </div>
 
         <Button
-          to={PATH_AUTH}
+          to={PATH_SIGN_IN}
           text="Sing In"
           className="SignInButton"
         />

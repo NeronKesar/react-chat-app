@@ -4,7 +4,7 @@ import { Record } from 'immutable';
 import { eventChannel } from 'redux-saga';
 import { take, takeEvery, put, call, all } from 'redux-saga/effects';
 import { push } from 'react-router-redux';
-import { PATH_AUTH } from '../constants/paths';
+import { PATH_SIGN_IN } from '../constants/paths';
 
 export const ReducerRecord = Record({
   user: null,
@@ -135,7 +135,7 @@ export const watchStatusChange = function* () {
         payload: user ,
       });
 
-      yield put(push(PATH_AUTH))
+      yield put(push(PATH_SIGN_IN))
     }
   }
 };
