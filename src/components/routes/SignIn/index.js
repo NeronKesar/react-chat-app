@@ -14,7 +14,7 @@ class SignIn extends Component {
 
   renderLoader = () => {
     return (
-      <div className="AuthLoaderContainer">
+      <div className="SignInLoaderContainer">
         <Loader />
       </div>
     )
@@ -22,7 +22,7 @@ class SignIn extends Component {
 
   render() {
     return (
-      <div className="AuthContainer">
+      <div className="SignInContainer">
 
         {
           this.props.loading
