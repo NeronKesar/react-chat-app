@@ -1,0 +1,11 @@
+.SignUpContainer {
+  display: flex;
+  width: 1000px;
+  justify-content: center;
+}
+
+.SignUpLoaderContainer {
+  height: 500px;
+  display: flex;
+  align-items: center;
+}
