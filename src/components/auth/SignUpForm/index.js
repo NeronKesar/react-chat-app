@@ -98,6 +98,22 @@ const validate = (
 ) => {
   const errors = {};
 
+  if (!firstName) {
+    errors.firstName = 'First name is required'
+  } else if (!isLength(firstName, { min: 3, max: 20 })) {
+    errors.firstName = 'Invalid length';
+  }
+
+  if (!lastName) {
+    errors.lastName = 'Last name is required';
+  } else if (!isLength(lastName, { min: 3, max: 20 })) {
+    errors.lastName = 'Invalid length';
+  }
+
+  if (!birthday) {
+    errors.birthday = 'Birthday is required';
+  }
+
   if (!email) {
     errors.email = 'Email is required';
   } else if (!isEmail(email)) {
@@ -106,7 +122,7 @@ const validate = (
 
   if (!nickname) {
     errors.nickname = 'Nickname is required';
-  } else if (!isLength(nickname, { min: 5, max: 30 })) {
+  } else if (!isLength(nickname, { min: 5, max: 20 })) {
     errors.nickname = 'Invalid length';
   }
   

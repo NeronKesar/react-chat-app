@@ -1,0 +1,31 @@
+.DatePickerFieldRoot {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-bottom: 20px;
+}
+
+.DatePickerFieldInput {
+  background-color: #2e2e2e;
+  color: #afafaf;
+  border-radius: 10px;
+  padding: 10px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  font-family: 'Benguiat', sans-serif;
+}
+
+.DatePickerFieldInput:focus {
+  border: 2px solid red;
+  outline: none;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.DatePickerFieldErrorText {
+  color: red;
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+}
+
