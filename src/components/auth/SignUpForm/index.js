@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-import emailValidator from 'email-validator';
+import moment from 'moment';
+import isEmail from 'validator/lib/isEmail';
+import isLength from 'validator/lib/isLength';
 import InputField from '../../common/InputField';
+import DatePickerField from '../../common/DatePickerField';
 import './style.css';
 
 class SignUpForm extends Component {
@@ -17,17 +20,41 @@ class SignUpForm extends Component {
 
           <div className="SignUpFormInputContainer">
 
-            <label className="SignUpFormLabel">Email</label>
+            <label className="SignUpFormLabel">First Name</label>
 
-            <Field name="email" component={InputField} />
+            <Field name="firstName" component={InputField} />
 
           </div>
 
           <div className="SignUpFormInputContainer">
 
-            <label className="SignUpFormLabel">User Name</label>
+            <label className="SignUpFormLabel">Last Name</label>
 
-            <Field name="userName" component={InputField} />
+            <Field name="lastName" component={InputField} />
+
+          </div>
+
+          <div className="SignUpFormInputContainer">
+
+            <label className="SignUpFormLabel">Birthday</label>
+
+            <Field name="birthday" component={DatePickerField} />
+
+          </div>
+
+          <div className="SignUpFormInputContainer">
+
+            <label className="SignUpFormLabel">Nickname</label>
+
+            <Field name="nickname" component={InputField} />
+
+          </div>
+
+          <div className="SignUpFormInputContainer">
+
+            <label className="SignUpFormLabel">Email</label>
+
+            <Field name="email" component={InputField} />
 
           </div>
 
@@ -58,25 +85,47 @@ class SignUpForm extends Component {
   }
 }
 
-const validate = ({ email, userName, password, repeatPassword }) => {
+const validate = (
+  {
+    firstName,
+    lastName,
+    birthday,
+    nickname,
+    email,
+    password,
+    repeatPassword,
+  }
+) => {
   const errors = {};
 
   if (!email) {
     errors.email = 'Email is required';
-  } else if (!emailValidator.validate(email)) {
+  } else if (!isEmail(email)) {
     errors.email = 'Invalid email';
+  }
+
+  if (!nickname) {
+    errors.nickname = 'Nickname is required';
+  } else if (!isLength(nickname, { min: 5, max: 30 })) {
+    errors.nickname = 'Invalid length';
   }
   
   if (!password) {
     errors.password = 'Password is required';
-  } else if (password.length < 8) {
+  } else if (!isLength(password, { min: 8 })) {
     errors.password = 'Password is to short';
+  }
+
+  if (!repeatPassword) {
+    errors.repeatPassword = 'Repeat your password'
+  } else if (repeatPassword !== password) {
+    errors.repeatPassword = 'Passwords do not match';
   }
 
   return errors;
 };
 
 export default reduxForm({
-  form: 'auth',
+  form: 'signUp',
   validate,
 })(SignUpForm);

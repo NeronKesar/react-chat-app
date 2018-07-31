@@ -52,10 +52,24 @@ export default function reducer(state = new ReducerRecord(), action) {
   }
 }
 
-export function signUp(email, password) {
+export function signUp(
+  firstName,
+  lastName,
+  nickname,
+  birthday,
+  email,
+  password,
+) {
   return {
     type: SIGN_UP_REQUEST,
-    payload: { email, password },
+    payload: {
+      firstName,
+      lastName,
+      nickname,
+      birthday,
+      email,
+      password,
+    },
   }
 }
 
@@ -77,12 +91,13 @@ export const signUpSaga = function* () {
 
   while(true) {
     const action = yield take(SIGN_UP_REQUEST);
+    const { email, password } = action.payload;
 
     try {
      yield call(
-        [auth, auth.createUserWithEmailAndPassword],
-        action.payload.email,
-        action.payload.password,
+       [auth, auth.createUserWithEmailAndPassword],
+       email,
+       password,
       );
 
     } catch (error) {

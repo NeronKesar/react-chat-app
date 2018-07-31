@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
-import emailValidator from 'email-validator';
+import isEmail from 'validator/lib/isEmail';
 import InputField from '../../common/InputField';
 import { PATH_SIGN_UP } from '../../../constants/paths';
 import './style.css';
@@ -53,7 +53,7 @@ const validate = ({ email, password }) => {
 
   if (!email) {
     errors.email = 'Email is required';
-  } else if (!emailValidator.validate(email)) {
+  } else if (!isEmail(email)) {
     errors.email = 'Invalid email';
   }
 
@@ -67,6 +67,6 @@ const validate = ({ email, password }) => {
 };
 
 export default reduxForm({
-  form: 'auth',
+  form: 'signIn',
   validate,
 })(SignInForm);

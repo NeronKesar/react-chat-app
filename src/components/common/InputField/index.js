@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 
-function InputField(props) {
+const InputField = (props) => {
   const { input, type, meta: { error, touched } } = props;
   const errorStyle = (touched && error) ? { boxShadow: '1px 1px 10px red, 1px 1px 10px red, 1px 1px 10px red' } : {};
   const errorText = touched && error && <div className="ErrorFieldErrorText">{error}</div>;
@@ -20,6 +20,6 @@ function InputField(props) {
 
     </div>
   )
-}
+};
 
 export default InputField;

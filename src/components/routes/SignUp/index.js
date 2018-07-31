@@ -6,7 +6,7 @@ import Loader from '../../common/Loader';
 import './style.css';
 
 class SignUp extends Component {
-  handleSingUp = ({ email, password }) => {};
+  handleSingUp = ({ email, userName, password }) => {};
 
   renderLoader = () => {
     return (
