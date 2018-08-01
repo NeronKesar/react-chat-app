@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import { getDateLimit } from '../../../utils';
@@ -18,11 +17,11 @@ class DatePickerField extends Component {
       meta: { touched, error }
     } = this.props;
 
-    const className = (touched && error) ? 'DatePickerFieldInputError' : 'DatePickerFieldInput';
-    const errorText = touched && error && <div className="DatePickerFieldErrorText">{error}</div>;
+    const className = (touched && error) ? 'form-field__input-error' : 'form-field__input';
+    const errorText = touched && error && <div className="form-field__error-text">{error}</div>;
 
     return (
-      <div className="DatePickerFieldRoot">
+      <div className="form-field__container">
 
         <DatePicker
           {...input}

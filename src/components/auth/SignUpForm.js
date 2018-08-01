@@ -5,8 +5,8 @@ import isLength from 'validator/lib/isLength';
 import isAlpha from 'validator/lib/isAlpha';
 import isAlphanumeric from 'validator/lib/isAlphanumeric';
 import FormField from '../common/FormField';
-import InputField from '../common/InputField';
-import DatePickerField from '../common/DatePickerField';
+import InputField from '../common/FormField/InputField';
+import DatePickerField from '../common/FormField/DatePickerField';
 import './style.css';
 
 class SignUpForm extends Component {

@@ -6,7 +6,7 @@ const FormField = props => {
   const { label, name, component, type = '' } = props;
 
   return (
-    <div className="form-field__container">
+    <div className="form-field__root">
 
       <label className="form-field__label">{label}</label>
 

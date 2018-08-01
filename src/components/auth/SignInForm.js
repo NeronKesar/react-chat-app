@@ -3,7 +3,7 @@ import { reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import isEmail from 'validator/lib/isEmail';
 import FormField from '../common/FormField';
-import InputField from '../common/InputField';
+import InputField from '../common/FormField/InputField';
 import { PATH_SIGN_UP } from '../../constants/paths';
 import './style.css';
 
