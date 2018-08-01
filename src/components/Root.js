@@ -7,8 +7,8 @@ import NavigationBar from './NavigationBar/index';
 import ProtectedRoute from './common/ProtectedRoute';
 import Profile from './routes/Profile';
 import Contacts from './routes/Contacts';
-import SignIn from './routes/SignIn';
-import SignUp from './routes/SignUp';
+import SignIn from './routes/sign/SignIn';
+import SignUp from './routes/sign/SignUp';
 import Dialog from './routes/Dialog';
 import {
   PATH_HOME,
