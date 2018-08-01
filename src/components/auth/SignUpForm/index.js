@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-import moment from 'moment';
 import isEmail from 'validator/lib/isEmail';
 import isLength from 'validator/lib/isLength';
 import InputField from '../../common/InputField';
