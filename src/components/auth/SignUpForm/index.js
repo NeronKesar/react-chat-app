@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import isEmail from 'validator/lib/isEmail';
 import isLength from 'validator/lib/isLength';
+import isAlpha from 'validator/lib/isAlpha';
+import isAlphanumeric from 'validator/lib/isAlphanumeric';
 import InputField from '../../common/InputField';
 import DatePickerField from '../../common/DatePickerField';
 import './style.css';
@@ -101,12 +103,16 @@ const validate = (
     errors.firstName = 'First name is required'
   } else if (!isLength(firstName, { min: 3, max: 20 })) {
     errors.firstName = 'Invalid length';
+  } else if (!(isAlpha(firstName, 'ru-RU') || isAlpha(firstName, 'en-US'))) {
+    errors.firstName = 'Only letters';
   }
 
   if (!lastName) {
     errors.lastName = 'Last name is required';
   } else if (!isLength(lastName, { min: 3, max: 20 })) {
     errors.lastName = 'Invalid length';
+  } else if (!(isAlpha(lastName, 'ru-RU') || isAlpha(lastName, 'en-US'))) {
+    errors.lastName = 'Only letters';
   }
 
   if (!birthday) {
@@ -123,6 +129,8 @@ const validate = (
     errors.nickname = 'Nickname is required';
   } else if (!isLength(nickname, { min: 5, max: 20 })) {
     errors.nickname = 'Invalid length';
+  } else if (!(isAlphanumeric(nickname, 'ru-RU') || isAlphanumeric(nickname, 'en-US'))) {
+    errors.nickname = 'Only letters and numbers';
   }
   
   if (!password) {
