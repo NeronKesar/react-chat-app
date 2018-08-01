@@ -4,7 +4,7 @@ import './style.css';
 class Chats extends Component {
   render() {
     return (
-      <div className="ChatsContainer">
+      <div className="chats-root">
         <h1>Chats</h1>
       </div>
     )

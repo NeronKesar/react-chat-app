@@ -42,7 +42,7 @@ class Dialog extends PureComponent {
 
   render() {
     return (
-      <div className="DialogRoot">
+      <div className="chat__root">
 
         <MessageList
           className="MessageList"

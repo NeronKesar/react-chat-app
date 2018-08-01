@@ -28,7 +28,7 @@ body {
   url('../src/assets/fonts/Benguiat.ttf') format('truetype');
 }
 
-.Root {
+.app__root {
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -36,7 +36,7 @@ body {
   align-items: center;
 }
 
-.Title {
+.app__title {
   color: black;
   font-family: 'Hellion', sans-serif;
   font-size: 50px;
@@ -47,11 +47,11 @@ body {
     2px 2px 10px red;
 }
 
-.Title:hover {
+.app__title:hover {
   color: #9b0000;
 }
 
-.Title:active {
+.app__title:active {
   color: #600000
 }
 

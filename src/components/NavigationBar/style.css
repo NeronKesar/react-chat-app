@@ -60,3 +60,9 @@
   outline: none;
   padding-right: 20px;
 }
+
+.navigation-bar__user-email {
+  font-family: 'Benguiat', sans-serif;
+  color: #afafaf;
+  padding-right: 20px;
+}

@@ -8,7 +8,7 @@ export default function Title({ to, text }) {
         to={to}
         style={{ textDecoration: 'none' }}
       >
-        <h1 className="Title">{text}</h1>
+        <h1 className="app__title">{text}</h1>
       </Link>
     </div>
   )

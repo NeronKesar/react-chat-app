@@ -17,12 +17,18 @@ class NavigationBar extends Component {
   renderSignButton = () => {
     if (!!this.props.user) {
       return (
-        <button
-          className="navigation-bar__sign-out-button"
-          onClick={this.handleSignOut}
-        >
-          Sign Out
-        </button>
+        <div>
+
+          <label className="navigation-bar__user-email">{this.props.user.email}</label>
+
+          <button
+            className="navigation-bar__sign-out-button"
+            onClick={this.handleSignOut}
+          >
+            Sign Out
+          </button>
+
+        </div>
       )
     } else {
       return (

@@ -20,7 +20,7 @@ import {
 class Root extends Component {
   render() {
     return (
-      <div className="Root">
+      <div className="app__root">
 
         <Title to={PATH_HOME} text="CHAT-APP" />
 

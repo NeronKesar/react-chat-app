@@ -5,7 +5,7 @@ import image from '../../../assets/images/pentagram.png';
 const Loader = () => {
   return (
     <img
-      className="Loader"
+      className="loader"
       src={image}
       alt=""
     />
