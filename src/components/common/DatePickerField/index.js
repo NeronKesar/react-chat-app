@@ -33,11 +33,12 @@ class DatePickerField extends Component {
           onChange={this.handleChange}
           minDate={getDateLimit(80)}
           maxDate={getDateLimit(12)}
+          dateFormatCalendar="DD.MM.YYYY"
           showYearDropdown
           scrollableYearDropdown
+          yearDropdownItemNumber={80}
           showMonthDropdown
           scrollableMonthYearDropdown
-          dropdownMode="select"
           readOnly
         />
 
