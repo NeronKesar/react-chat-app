@@ -1,40 +1,28 @@
-.SignUpFormRoot {
+.auth__root {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.SignUpFormTitle {
+.auth__title {
   color: red;
   text-align: center;
 }
 
-.SignUpFormInputs {
+.auth__inputs {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
 }
 
-.SignUpFormInputContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 320px;
-}
-
-.SignUpFormLabel {
-  color: red;
-  font-size: 30px;
-}
-
-.SignUpFormSubmitButtonContainer {
+.auth__button-container {
   display: flex;
   justify-content: center;
   padding-top: 20px;
 }
 
-.SignUpFormSubmitButton {
+.auth__button {
   background-color: black;
   color: white;
   width: 100px;
@@ -45,12 +33,26 @@
   outline: none;
 }
 
-.SignUpFormSubmitButton:hover {
+.auth__button:hover {
   color: red;
 }
 
-.SignUpFormSubmitButton:active {
+.auth__button:active {
   background-color: red;
   color: black;
 }
 
+.auth__text {
+  color: red;
+  font-family: 'Benguiat', sans-serif;
+  font-size: 18px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.auth__link {
+  font-family: 'Shadows of Security', sans-serif;
+  font-size: 25px;
+  color: #afafaf;
+  text-decoration: none;
+}
