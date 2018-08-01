@@ -1,12 +1,11 @@
-.NavigationBar {
+.navigation-bar__root {
   display: flex;
   width: 1000px;
   align-items: center;
-  border-bottom-style: double;
-  border-bottom-color: red;
+  border-bottom: double red;
 }
 
-.NavigationBarContainer {
+.navigation-bar__container {
   display: flex;
   flex: 1;
   align-items: center;
@@ -14,20 +13,22 @@
   margin-left: 20px;
 }
 
-.NavigationBarButton {
+.navigation-bar__button {
   padding-right: 60px;
 }
 
-.NavigationBarButtonText {
+.navigation-bar__button-text {
   font-size: 25px;
   color: #9e0000;
 }
 
-.NavigationBarButtonText:hover {
+.navigation-bar__button-text:hover,
+.navigation-bar__sign-out-button:hover {
   color: red;
 }
 
-.NavigationBarButtonText:active {
+.navigation-bar__button-text:active,
+.navigation-bar__sign-out-button:active {
   color: black;
   text-shadow:
     1px 1px 2px red,
@@ -36,19 +37,26 @@
     1px 1px 2px red;
 }
 
-.SignInButton {
+.navigation-bar__sign-in-button-container {
+  display: flex;
+  align-items: center;
+  height: 30px;
+}
+
+.navigation-bar__sign-in-button {
   padding-right: 20px;
 }
 
-.SignInButton:hover {
+.navigation-bar__sign-in-button:hover {
   color: red;
 }
 
-.Button:active {
-  color: black;
-  text-shadow:
-    1px 1px 2px red,
-    1px 1px 2px red,
-    1px 1px 2px red,
-    1px 1px 2px red;
+.navigation-bar__sign-out-button {
+  background-color: transparent;
+  border: none;
+  color: #9e0000;
+  font-family: 'Shadows of Security', sans-serif;
+  font-size: 25px;
+  outline: none;
+  padding-right: 20px;
 }

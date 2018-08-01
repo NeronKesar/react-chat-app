@@ -136,18 +136,18 @@ export const watchStatusChange = function* () {
   const channel = yield call(createAuthChannel);
 
   while (true) {
-    const user = yield take(channel);
+    const { user } = yield take(channel);
 
     if (user) {
       yield put({
         type: SIGN_IN_SUCCESS,
-        payload: user ,
+        payload: { user },
       });
 
     } else {
       yield put({
         type: SIGN_OUT_SUCCESS,
-        payload: user ,
+        payload: { user },
       });
 
       yield put(push(PATH_SIGN_IN))

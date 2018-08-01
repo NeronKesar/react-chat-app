@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { signOut, moduleName } from '../../ducks/auth';
 import Button from './Button';
 import {
   PATH_PROFILE,
@@ -10,11 +12,36 @@ import {
 import './style.css'
 
 class NavigationBar extends Component {
+  handleSignOut = () => this.props.signOut();
+
+  renderSignButton = () => {
+    if (!!this.props.user) {
+      return (
+        <button
+          className="navigation-bar__sign-out-button"
+          onClick={this.handleSignOut}
+        >
+          Sign Out
+        </button>
+      )
+    } else {
+      return (
+        <div className="navigation-bar__sign-in-button-container">
+          <Button
+            to={PATH_SIGN_IN}
+            text="Sing In"
+            className="navigation-bar__sign-in-button"
+          />
+        </div>
+      )
+    }
+  };
+
   render() {
     return (
-      <div className="NavigationBar">
+      <div className="navigation-bar__root">
 
-        <div className="NavigationBarContainer">
+        <div className="navigation-bar__container">
 
           <Button
             to={PATH_PROFILE}
@@ -33,15 +60,13 @@ class NavigationBar extends Component {
 
         </div>
 
-        <Button
-          to={PATH_SIGN_IN}
-          text="Sing In"
-          className="SignInButton"
-        />
+        {this.renderSignButton()}
 
       </div>
     )
   }
 }
 
-export default NavigationBar;
+export default connect(state => ({
+  user: state[moduleName].user,
+}), { signOut })(NavigationBar);

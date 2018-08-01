@@ -6,11 +6,7 @@ import Loader from '../../common/Loader';
 import './style.css';
 
 class SignIn extends Component {
-  handleSingIn = ({ email, password }) => {
-    if (this.props.user.email === email) return;
-
-    this.props.signIn(email, password);
-  };
+  handleSingIn = ({ email, password }) => this.props.signIn(email, password);
 
   renderLoader = () => {
     return (
