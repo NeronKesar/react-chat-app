@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
-import { MessageList, Input, Button } from 'react-chat-elements';
+import { MessageList, Input } from 'react-chat-elements';
 import { messages } from './testMessages';
 import './style.css';
 import '../../common/chatElementsStyle.css';
 
-class Dialog extends PureComponent {
+class Chat extends PureComponent {
   state = {
     text: '',
     messages: [],
@@ -13,8 +13,6 @@ class Dialog extends PureComponent {
   componentDidMount() {
     this.setState({ messages });
   }
-
-  handleInputRef = ref => this.input = ref;
 
   handleKeyDown = ({ keyCode }) => {
     if (keyCode === 13) {
@@ -35,8 +33,7 @@ class Dialog extends PureComponent {
     });
 
     if (this.state.text.length > 0) {
-      this.setState({ messages });
-      this.input.clear();
+      this.setState({ messages, text: '' });
     }
   };
 
@@ -51,22 +48,25 @@ class Dialog extends PureComponent {
           dataSource={this.state.messages}
         />
 
-        <div>
-          <Input
-            ref={this.handleInputRef}
+        <div className="chat__input-container">
+
+          <input
+            className="chat__input"
             onKeyDown={this.handleKeyDown}
             onChange={this.handleChange}
             value={this.state.text}
             placeholder="Type here..."
-            rightButtons={
-              <Button
-                color='white'
-                backgroundColor='black'
-                text='Send'
-                onClick={this.handleSend}
-              />
-            }
           />
+
+          <div className="chat__button-container">
+            <button
+              className="chat__button"
+              onClick={this.handleSend}
+            >
+              Send
+            </button>
+          </div>
+
         </div>
 
       </div>
@@ -74,4 +74,4 @@ class Dialog extends PureComponent {
   }
 }
 
-export default Dialog;
+export default Chat;

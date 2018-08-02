@@ -1,15 +1,26 @@
-import firebase from 'firebase/app';
+import firebase from 'firebase';
 import { appName } from '../config';
 import { Record } from 'immutable';
 import { eventChannel } from 'redux-saga';
 import { take, takeEvery, put, call, all } from 'redux-saga/effects';
+import { reset } from 'redux-form';
 import { push } from 'react-router-redux';
 import { PATH_HOME, PATH_SIGN_IN } from '../constants/paths';
 
 export const ReducerRecord = Record({
   user: null,
+  userData: null,
   error: null,
   loading: false,
+});
+
+export const UserRecord = Record({
+  nickname: null,
+  firstName: null,
+  lastName: null,
+  birthday: null,
+  email: null,
+  password: null,
 });
 
 export const moduleName = 'auth';
@@ -38,6 +49,12 @@ export default function reducer(state = new ReducerRecord(), action) {
         .set('user', payload.user)
         .set('error', null);
 
+    case SIGN_UP_SUCCESS:
+      return state
+        .set('loading', false)
+        .set('error', null)
+        .setIn(['userData', payload.uid], payload);
+
     case SIGN_UP_ERROR:
     case SIGN_IN_ERROR:
       return state
@@ -53,9 +70,9 @@ export default function reducer(state = new ReducerRecord(), action) {
 }
 
 export function signUp(
+  nickname,
   firstName,
   lastName,
-  nickname,
   birthday,
   email,
   password,
@@ -63,9 +80,9 @@ export function signUp(
   return {
     type: SIGN_UP_REQUEST,
     payload: {
+      nickname,
       firstName,
       lastName,
-      nickname,
       birthday,
       email,
       password,
@@ -88,6 +105,7 @@ export function signOut() {
 
 export const signUpSaga = function* () {
   const auth = firebase.auth();
+  const usersRef = firebase.database().ref('users');
 
   while(true) {
     const action = yield take(SIGN_UP_REQUEST);
@@ -99,6 +117,13 @@ export const signUpSaga = function* () {
        email,
        password,
       );
+
+     const ref = yield call([usersRef, usersRef.push], action.payload);
+
+     yield put({
+       type: SIGN_UP_SUCCESS,
+       payload: { ...action.payload, uid: ref.key }
+     })
 
     } catch (error) {
       yield put({
@@ -114,6 +139,8 @@ export const signInSaga = function* () {
 
   while (true) {
     const action = yield take(SIGN_IN_REQUEST);
+
+    console.log('SIGN IN SAGA');
 
     try {
       yield call(

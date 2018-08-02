@@ -7,7 +7,7 @@ import Profile from './routes/Profile';
 import Contacts from './routes/Contacts';
 import SignIn from './routes/sign/SignIn';
 import SignUp from './routes/sign/SignUp';
-import Dialog from './routes/Dialog';
+import Chat from './routes/Chat';
 import {
   PATH_HOME,
   PATH_PROFILE,
@@ -28,7 +28,7 @@ class Root extends Component {
 
         <ProtectedRoute path={PATH_PROFILE} component={Profile} />
         <ProtectedRoute path={PATH_CONTACTS} component={Contacts} />
-        <ProtectedRoute path={PATH_CHATS} component={Dialog} />
+        <ProtectedRoute path={PATH_CHATS} component={Chat} />
 
         <Route path={PATH_SIGN_IN} component={SignIn} />
         <Route path={PATH_SIGN_UP} component={SignUp} />

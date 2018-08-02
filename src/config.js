@@ -1,6 +1,4 @@
-import firebase from 'firebase/app';
-import 'firebase/app';
-import 'firebase/auth';
+import firebase from 'firebase';
 
 export const appName = 'react-chat-app-de99d';
 export const firebaseConfig = {

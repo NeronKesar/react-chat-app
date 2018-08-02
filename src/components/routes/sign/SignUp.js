@@ -6,7 +6,22 @@ import Loader from '../../common/Loader';
 import './style.css';
 
 class SignUp extends Component {
-  handleSingUp = ({ email, userName, password }) => {};
+  handleSingUp = (
+    {
+      nickname,
+      firstName,
+      lastName,
+      birthday,
+      email,
+      password,
+    }) => this.props.signUp(
+    nickname,
+    firstName,
+    lastName,
+    birthday,
+    email,
+    password,
+  );
 
   renderLoader = () => {
     return (
