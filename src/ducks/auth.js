@@ -1,31 +1,19 @@
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import { appName } from '../config';
 import { Record } from 'immutable';
 import { eventChannel } from 'redux-saga';
 import { take, takeEvery, put, call, all } from 'redux-saga/effects';
-import { reset } from 'redux-form';
 import { push } from 'react-router-redux';
 import { PATH_HOME, PATH_SIGN_IN } from '../constants/paths';
 
 export const ReducerRecord = Record({
   user: null,
-  userData: null,
   error: null,
   loading: false,
 });
 
-export const UserRecord = Record({
-  nickname: null,
-  firstName: null,
-  lastName: null,
-  birthday: null,
-  email: null,
-  password: null,
-});
-
 export const moduleName = 'auth';
 export const SIGN_UP_REQUEST = `${appName}/${moduleName}/SIGN_UP_REQUEST`;
-export const SIGN_UP_SUCCESS = `${appName}/${moduleName}/SIGN_UP_SUCCESS`;
 export const SIGN_UP_ERROR = `${appName}/${moduleName}/SIGN_UP_ERROR`;
 
 export const SIGN_IN_REQUEST = `${appName}/${moduleName}/SIGN_IN_REQUEST`;
@@ -44,16 +32,26 @@ export default function reducer(state = new ReducerRecord(), action) {
       return state.set('loading', true);
 
     case SIGN_IN_SUCCESS:
-      return state
-        .set('loading', false)
-        .set('user', payload.user)
-        .set('error', null);
+      const {
+        uid,
+        nickname,
+        firstName,
+        lastName,
+        birthday,
+        email,
+      } = payload.profile[1];
 
-    case SIGN_UP_SUCCESS:
       return state
         .set('loading', false)
-        .set('error', null)
-        .setIn(['userData', payload.uid], payload);
+        .set('user', {
+          uid,
+          nickname,
+          firstName,
+          lastName,
+          birthday,
+          email,
+        })
+        .set('error', null);
 
     case SIGN_UP_ERROR:
     case SIGN_IN_ERROR:
@@ -109,7 +107,14 @@ export const signUpSaga = function* () {
 
   while(true) {
     const action = yield take(SIGN_UP_REQUEST);
-    const { email, password } = action.payload;
+    const {
+      nickname,
+      firstName,
+      lastName,
+      birthday,
+      email,
+      password,
+    } = action.payload;
 
     try {
      yield call(
@@ -118,12 +123,17 @@ export const signUpSaga = function* () {
        password,
       );
 
-     const ref = yield call([usersRef, usersRef.push], action.payload);
+     yield call(
+       [usersRef, usersRef.push],
+       {
+         nickname,
+         firstName,
+         lastName,
+         birthday,
+         email,
+       },
+     );
 
-     yield put({
-       type: SIGN_UP_SUCCESS,
-       payload: { ...action.payload, uid: ref.key }
-     })
 
     } catch (error) {
       yield put({
@@ -139,15 +149,15 @@ export const signInSaga = function* () {
 
   while (true) {
     const action = yield take(SIGN_IN_REQUEST);
-
-    console.log('SIGN IN SAGA');
+    const { email, password } = action.payload;
 
     try {
       yield call(
         [auth, auth.signInWithEmailAndPassword],
-        action.payload.email,
-        action.payload.password,
-      )
+        email,
+        password,
+      );
+
     } catch (error) {
       yield put({
         type: SIGN_IN_ERROR,
@@ -164,11 +174,22 @@ export const watchStatusChange = function* () {
 
   while (true) {
     const { user } = yield take(channel);
+    const usersRef = firebase.database().ref('users');
 
     if (user) {
+      const userData = yield call([usersRef, usersRef.once], 'value');
+
+      let profile = null;
+
+      Object.entries(userData.val()).forEach(item => {
+        if (item[1].email === user.email) profile = item;
+      });
+
+      console.log('PASS', profile);
+
       yield put({
         type: SIGN_IN_SUCCESS,
-        payload: { user },
+        payload: { profile },
       });
 
       yield put(push(PATH_HOME))
